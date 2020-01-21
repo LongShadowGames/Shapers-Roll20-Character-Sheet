@@ -1,0 +1,1189 @@
+<!-- Shapers First Edition Character Sheet -->
+<!-- Author: Long Shadow Games -->
+<!-- Version 1.0 -->
+
+<div>
+    <img class="logo" src="https://longshadowgames.com/wp-content/uploads/2019/11/shapers-logo-website.png" />
+</div>
+
+<!-- Tabbed buttons -->
+<div>
+    <button type="roll" value="/roll 1d10 + @{PhysicalAgility} + @{MentalAgility} &{tracker}">Initiative</button>
+    <button type="action" name="act_character" >Character</button>
+    <button type="action" name="act_equipment" >Equipment</button>
+    <button type="action" name="act_special" >Special Abilities</button>
+    <button type="action" name="act_journal" >Journal</button>
+</div>
+<input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='character'  />
+
+<div class="sheet-character">
+    <div class="section">
+        <h2>Personal Details</h2>
+        <div class="stretch">
+            <div>Name <input class="long" type="text" name="attr_character_name" /></div>
+            <div>Species <input class="medium" type="text" name="attr_species" /></div>
+            <div>Size <input type="number" name="attr_size" value="10"/></div>
+            <div>Gender <input class="medium" type="text" name="attr_gender" /></div>
+            <div>Age <input type="number" name="attr_age" /></div>
+        </div>
+        
+        <div class="stretch">
+            <div>Height <input class="short" type="text" name="attr_height" /></div>
+            <div>Weight <input class="short" type="text" name="attr_weight" /></div>
+            <div>Skin <input class="medium" type="text" name="attr_skin" /></div>
+            <div>Hair <input class="medium" type="text" name="attr_hair" /></div>
+            <div>Eyes <input class="medium" type="text" name="attr_eyes" /></div>
+        </div>
+    </div>
+    
+    <div class="section stretch">
+        <div>
+            <h2>Primary Attributes</h2>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>PS</th>
+                    <th>PA</th>
+                    <th>PF</th>
+                    <th>SS</th>
+                    <th>SA</th>
+                    <th>SF</th>
+                    <th>MS</th>
+                    <th>MA</th>
+                    <th>MF</th>
+                    <th>Sh</th>
+                </tr>
+                <tr>
+                    <th>Base</th>
+                    <td><input type="number" name="attr_PhysicalStrength" value="1"/></td>
+                    <td><input type="number" name="attr_PhysicalAgility" value="1"/></td>
+                    <td><input type="number" name="attr_PhysicalFortitude" value="1"/></td>
+                    <td><input type="number" name="attr_SocialStrength" value="1"/></td>
+                    <td><input type="number" name="attr_SocialAgility" value="1"/></td>
+                    <td><input type="number" name="attr_SocialFortitude" value="1"/></td>
+                    <td><input type="number" name="attr_MentalStrength" value="1"/></td>
+                    <td><input type="number" name="attr_MentalAgility" value="1"/></td>
+                    <td><input type="number" name="attr_MentalFortitude" value="1"/></td>
+                    <td><input type="number" name="attr_Shaping" value="0"/></td>
+                </tr>
+                <tr>
+                    <th>Mod</th>
+                    <td><input type="number" name="attr_PhysicalStrength_Mod" value="0"/></td>
+                    <td><input type="number" name="attr_PhysicalAgility_Mod" value="0"/></td>
+                    <td><input type="number" name="attr_PhysicalFortitude_Mod" value="0"/></td>
+                    <td><input type="number" name="attr_SocialStrength_Mod" value="0"/></td>
+                    <td><input type="number" name="attr_SocialAgility_Mod" value="0"/></td>
+                    <td><input type="number" name="attr_SocialFortitude_Mod" value="0"/></td>
+                    <td><input type="number" name="attr_MentalStrength_Mod" value="0"/></td>
+                    <td><input type="number" name="attr_MentalAgility_Mod" value="0"/></td>
+                    <td><input type="number" name="attr_MentalFortitude_Mod" value="0"/></td>
+                    <td><input type="number" name="attr_Shaping_Mod" value="0"/></td>
+                </tr>
+                <tr>
+                    <th>Curr</th>
+                    <td><input type="hidden" name="attr_PhysicalStrength_Current" value="0" /><input type="number" name="attr_PhysicalStrength_Current_Display" value="@{PhysicalStrength_Current}" disabled="true" /></td>
+                    <td><input type="hidden" name="attr_PhysicalAgility_Current" value="0"/><input type="number" name="attr_PhysicalAgility_Current_Display" value="@{PhysicalAgility_Current}" disabled="true" /></td>
+                    <td><input type="hidden" name="attr_PhysicalFortitude_Current" value="0"/><input type="number" name="attr_PhysicalFortitude_Current_Display" value="@{PhysicalFortitude_Current}" disabled="true" /></td>
+                    <td><input type="hidden" name="attr_SocialStrength_Current" value="0"/><input type="number" name="attr_SocialStrength_Current_Display" value="@{SocialStrength_Current}" disabled="true" /></td>
+                    <td><input type="hidden" name="attr_SocialAgility_Current" value="0"/><input type="number" name="attr_SocialAgility_Current_Display" value="@{SocialAgility_Current}" disabled="true" /></td>
+                    <td><input type="hidden" name="attr_SocialFortitude_Current" value="0"/><input type="number" name="attr_SocialFortitude_Current_Display" value="@{SocialFortitude_Current}" disabled="true" /></td>
+                    <td><input type="hidden" name="attr_MentalStrength_Current" value="0"/><input type="number" name="attr_MentalStrength_Current_Display" value="@{MentalStrength_Current}" disabled="true" /></td>
+                    <td><input type="hidden" name="attr_MentalAgility_Current" value="0"/><input type="number" name="attr_MentalAgility_Current_Display" value="@{MentalAgility_Current}" disabled="true" /></td>
+                    <td><input type="hidden" name="attr_MentalFortitude_Current" value="0"/><input type="number" name="attr_MentalFortitude_Current_Display" value="@{MentalFortitude_Current}" disabled="true" /></td>
+                    <td><input type="hidden" name="attr_Shaping_Current" value="0"/><input type="number" name="attr_Shaping_Current_Display" value="@{Shaping_Current}" disabled="true" /></td>
+                </tr>
+            </table>
+        </div>
+        <div class="vertical-line"></div>
+        <div>
+            <h2>Shaper Energy</h2>
+            <table>
+                <tr>
+                    <th>Maximum</th>
+                    <th>Current</th>
+                </tr>
+                <tr>
+                    <td><input type="number" name="attr_ShaperEnergy_max" value="@{Shaping}" disabled="true" /></td>
+                    <td><input type="number" name="attr_ShaperEnergy" value="0" /></td>
+                </tr>
+            </table>
+        </div>
+        <div class="vertical-line"></div>
+        <div>
+            <h2>Experience</h2>
+            <table>
+                <tr>
+                    <th>Current</th>
+                    <th>Spent</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td><input type="number" name="attr_CurrentXP" /></td>
+                    <td><input type="number" name="attr_SpentXP" /></td>
+                    <td><input type="number" name="attr_TotalXP" value="@{CurrentXP} + @{SpentXP}" disabled="true" /></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <div class="section stretch">
+        <div>
+            <h2>Health</h2>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Physical</th>
+                    <th>Social</th>
+                    <th>Mental</th>
+                </tr>
+                <tr>
+                    <th>Maximum</th>
+                    <td><input type="number" name="attr_PhysicalHealth_max" value="@{PhysicalStrength}+(2*@{PhysicalFortitude})" disabled="true" /></td>
+                    <td><input type="number" name="attr_SocialHealth_max" value="@{SocialStrength}+(2*@{SocialFortitude})" disabled="true" /></td>
+                    <td><input type="number" name="attr_MentalHealth_max" value="@{MentalStrength}+(2*@{MentalFortitude})" disabled="true" /></td>
+                </tr>
+                <tr>
+                    <th>Current</th>
+                    <td><input type="number" name="attr_PhysicalHealth" /></td>
+                    <td><input type="number" name="attr_SocialHealth" /></td>
+                    <td><input type="number" name="attr_MentalHealth" /></td>
+                </tr>
+            </table>
+        </div>
+        <div class="vertical-line"></div>
+        <div>
+            <h2>Movement</h2>
+            <table>
+                <tr>
+                    <th>Walking</th>
+                    <th>Jogging</th>
+                    <th>Running</th>
+                    <th>Sprinting</th>
+                </tr>
+                <tr>
+                    <td><input type="hidden" name="attr_Walking" value="0" /><input type="number" name="attr_Walking_Display" value="@{Walking}" disabled="true" /></td>
+                    <td><input type="hidden" name="attr_Jogging" value="0" /><input type="number" name="attr_Jogging_Display" value="@{Jogging}" disabled="true" /></td>
+                    <td><input type="hidden" name="attr_Running" value="0" /><input type="number" name="attr_Running_Display" value="@{Running}" disabled="true" /></td>
+                    <td><input type="hidden" name="attr_Sprinting" value="0" /><input type="number" name="attr_Sprinting_Display" value="@{Sprinting}" disabled="true" /></td>
+                </tr>
+            </table>
+            <button type="roll" value="&{template:leap} {{name=A leap of faith!}} {{height=[[@{PhysicalStrength_Current}*0.1]]}} {{standing=[[2+(@{PhysicalStrength_Current}*0.1)]]}} {{running=[[3+(@{PhysicalStrength_Current}*0.5)]]}} {{jump=[[(50+@{PhysicalAgility_Current}+@{Athletics}-1d100)/100]]}}">Leap</button>
+            <button type="roll" value="&{template:fall} {{name=Arrrrggghhhhhh... kersplatt!!}} {{type=[[?{Type|Jump, 1|Fall,2|}]]}} {{distance=[[?{Distance|1}]]}} {{damage=[[(?{Distance|1}*2)+@{size}-@{PhysicalFortitude_Current}]]}} {{athletics=[[floor((50+@{PhysicalAgility}+@{Athletics}-?{Distance|1}-1d100)/10)]]}}">Fall</button>
+        </div>
+        <div class="vertical-line"></div>
+        <div>
+            <h2>Cash</h2>
+            <table>
+                <tr>
+                    <th>PPs</th>
+                    <th>GCs</th>
+                    <th>SMs</th>
+                    <th>CBs</th>
+                </tr>
+                <tr>
+                    <td><input type="number" name="attr_PPs" /></td>
+                    <td><input type="number" name="attr_GCs" /></td>
+                    <td><input type="number" name="attr_SMs" /></td>
+                    <td><input type="number" name="attr_CBs" /></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <div class="section stretch">
+        <div>
+            <h2>Innate Aptitudes</h2>
+            <div class="stretch">
+                <div>
+                    <table>
+                        <tr>
+                            <td>Athletics</td>
+                            <td><input type="number" name="attr_Athletics" value="0"/></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Athletics}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{Athletics} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Bravery</td>
+                            <td><input type="number" name="attr_Bravery" value="0" /></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Bravery}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{Bravery} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Climbing</td>
+                            <td><input type="number" name="attr_Climbing" value="0" /></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Climbing}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{Climbing} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Concentration</td>
+                            <td><input type="number" name="attr_Concentration" value="0" /></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Concentration}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{Concentration} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></button></td>
+                        </tr>
+                        <tr>
+                            <td>Dodge</td>
+                            <td><input type="number" name="attr_Dodge" value="0" /></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Dodge}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{Dodge} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Endurance</td>
+                            <td><input type="number" name="attr_Endurance" value="0" /></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Endurance}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{Endurance} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Gambling</td>
+                            <td><input type="number" name="attr_Gambling" value="0" /></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Gambling}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{Gambling} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Intimidation</td>
+                            <td><input type="number" name="attr_Intimidation" value="0" /></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Intimidation}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{Intimidation} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Lifting</td>
+                            <td><input type="number" name="attr_Lifting" value="0" /></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Lifting}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{Lifting} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Melee (Armed)</td>
+                            <td><input type="number" name="attr_MeleeArmed" value="0" /></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Melee (Armed)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{MeleeArmed} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Melee (Unarmed)</td>
+                            <td><input type="number" name="attr_MeleeUnarmed" value="0" /></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Melee (Unarmed)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{MeleeUnarmed} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div>
+                    <table>
+                        <tr>
+                            <td>Navigation</td>
+                            <td><input type="number" name="attr_Navigation" value="0"/></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Navigation}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{Navigation} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Ranged (Throwing)</td>
+                            <td><input type="number" name="attr_RangedThrowing" value="0" /></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Ranged (Throwing)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{RangedThrowing} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Perception</td>
+                            <td><input type="number" name="attr_Perception" value="0" /></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Perception}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{Perception} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Persuasion</td>
+                            <td><input type="number" name="attr_Persuasion" value="0" /></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Persuasion}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{Persuasion} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Performance (Acting)</td>
+                            <td><input type="number" name="attr_PerformanceActing" value="0" /></td>
+                            <td><button type="roll" value="&{template:default} {{name=Testing Performance (Acting)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{PerformanceActing} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Performance (Dance)</td>
+                            <td><input type="number" name="attr_PerformanceDance" value="0" /></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Performance (Dance)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{PerformanceDance} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Performance (Entertain)</td>
+                            <td><input type="number" name="attr_PerformanceEntertain" value="0" /></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Performance (Entertain)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{PerformanceEntertain} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Performance (Sing)</td>
+                            <td><input type="number" name="attr_PerformanceSing" value="0" /></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Performance (Sing)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{PerformanceSing} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Stealth</td>
+                            <td><input type="number" name="attr_Stealth" value="0" /></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Stealth}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{Stealth} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Survival</td>
+                            <td><input type="number" name="attr_Survival" value="0" /></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Survival}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{Survival} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Willpower</td>
+                            <td><input type="number" name="attr_Willpower" value="0" /></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Willpower}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}|
+                                } + @{Willpower} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                    </table>
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="vertical-line"></div>
+        <div>
+            <h2>Learned Aptitudes</h2>
+            
+            <table>
+                <tr>
+                    <td>Ranged (Artillery)</td>
+                    <td><input type="number" name="attr_RangedArtillery" value="0" /></td>
+                    <td><button type="roll" value="&{template:aptitude} {{name=Testing Ranged (Artillery)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                        Physical Strength, @{PhysicalStrength_Current}|
+                        Physical Agility, @{PhysicalAgility_Current}|
+                        Physical Fortitude, @{PhysicalFortitude_Current}|
+                        Social Strength, @{SocialStrength_Current}|
+                        Social Agility, @{SocialAgility_Current}|
+                        Social Fortitude, @{SocialFortitude_Current}|
+                        Mental Strength, @{MentalStrength_Current}|
+                        Mental Agility, @{MentalAgility_Current}|
+                        Mental Fortitude, @{MentalFortitude_Current}|
+                        Shaping, @{Shaping_Current}|
+                        } + @{RangedArtillery} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                </tr>
+                <tr>
+                    <td>Ranged (Firearms)</td>
+                    <td><input type="number" name="attr_RangedFirearms" value="0" /></td>
+                    <td><button type="roll" value="&{template:aptitude} {{name=Testing Ranged (Firearms)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                        Physical Strength, @{PhysicalStrength_Current}|
+                        Physical Agility, @{PhysicalAgility_Current}|
+                        Physical Fortitude, @{PhysicalFortitude_Current}|
+                        Social Strength, @{SocialStrength_Current}|
+                        Social Agility, @{SocialAgility_Current}|
+                        Social Fortitude, @{SocialFortitude_Current}|
+                        Mental Strength, @{MentalStrength_Current}|
+                        Mental Agility, @{MentalAgility_Current}|
+                        Mental Fortitude, @{MentalFortitude_Current}|
+                        Shaping, @{Shaping_Current}|
+                        } + @{RangedFirearms} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                </tr>
+                <tr>
+                    <td>Ranged (Primitive)</td>
+                    <td><input type="number" name="attr_RangedPrimitive" value="0" /></td>
+                    <td><button type="roll" value="&{template:aptitude} {{name=Testing Ranged (Primitive)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                        Physical Strength, @{PhysicalStrength_Current}|
+                        Physical Agility, @{PhysicalAgility_Current}|
+                        Physical Fortitude, @{PhysicalFortitude_Current}|
+                        Social Strength, @{SocialStrength_Current}|
+                        Social Agility, @{SocialAgility_Current}|
+                        Social Fortitude, @{SocialFortitude_Current}|
+                        Mental Strength, @{MentalStrength_Current}|
+                        Mental Agility, @{MentalAgility_Current}|
+                        Mental Fortitude, @{MentalFortitude_Current}|
+                        Shaping, @{Shaping_Current}|
+                        } + @{RangedPrimitive} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                </tr>
+                <tr>
+                    <td>Ranged (Siege)</td>
+                    <td><input type="number" name="attr_RangedSiege" value="0" /></td>
+                    <td><button type="roll" value="&{template:aptitude} {{name=Testing Ranged (Siege)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                        Physical Strength, @{PhysicalStrength_Current}|
+                        Physical Agility, @{PhysicalAgility_Current}|
+                        Physical Fortitude, @{PhysicalFortitude_Current}|
+                        Social Strength, @{SocialStrength_Current}|
+                        Social Agility, @{SocialAgility_Current}|
+                        Social Fortitude, @{SocialFortitude_Current}|
+                        Mental Strength, @{MentalStrength_Current}|
+                        Mental Agility, @{MentalAgility_Current}|
+                        Mental Fortitude, @{MentalFortitude_Current}|
+                        Shaping, @{Shaping_Current}|
+                        } + @{RangedSiege} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                </tr>
+                <tr>
+                    <td class="long">Ranged (Throwing)</td>
+                    <td><input type="number" name="attr_RangedThrowing" value="0" /></td>
+                    <td><button type="roll" value="&{template:aptitude} {{name=Testing Ranged (Throwing)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                        Physical Strength, @{PhysicalStrength_Current}|
+                        Physical Agility, @{PhysicalAgility_Current}|
+                        Physical Fortitude, @{PhysicalFortitude_Current}|
+                        Social Strength, @{SocialStrength_Current}|
+                        Social Agility, @{SocialAgility_Current}|
+                        Social Fortitude, @{SocialFortitude_Current}|
+                        Mental Strength, @{MentalStrength_Current}|
+                        Mental Agility, @{MentalAgility_Current}|
+                        Mental Fortitude, @{MentalFortitude_Current}|
+                        Shaping, @{Shaping_Current}|
+                        } + @{RangedThrowing} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                </tr>
+            </table>
+            
+            <fieldset class="repeating_skills">
+                <input type="text"name="attr_AptitudeName" />
+                <input type="number" name="attr_AptitudeValue" value="0"/>
+                <button type="roll" value="&{template:aptitude} {{name=Testing @{AptitudeName}}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                    Physical Strength, @{PhysicalStrength_Current}|
+                    Physical Agility, @{PhysicalAgility_Current}|
+                    Physical Fortitude, @{PhysicalFortitude_Current}|
+                    Social Strength, @{SocialStrength_Current}|
+                    Social Agility, @{SocialAgility_Current}|
+                    Social Fortitude, @{SocialFortitude_Current}|
+                    Mental Strength, @{MentalStrength_Current}|
+                    Mental Agility, @{MentalAgility_Current}|
+                    Mental Fortitude, @{MentalFortitude_Current}|
+                    Shaping, @{Shaping_Current}|
+                    } + @{AptitudeValue} - ?{Opponent|0}} -1d100cs<5cf>96]]}}">
+                </button>
+            </fieldset>
+            
+                
+            
+        </div>
+    </div>
+    
+    <div class="section">
+        <div>
+            <h2>Close Combat Weapons</h2>
+            
+            <span class="long">Name</span>
+            <span class="medium">Aptitude</span>
+            <span class="short">Dam</span>
+            <span class="short">AB</span>
+            <span class="medium">Type</span>
+            <span class="short">Mod</span>
+            <span class="short">Enc</span>
+                
+            <fieldset class="repeating_MeleeWeapons">
+                <input class="long" type="text" name="attr_MeleeWeaponName" />
+                <select class="medium" name="attr_MeleeWeaponApt">
+                    <option value="@{MeleeArmed}">Melee (Armed)</option>
+                    <option value="@{MeleeUnarmed}">Melee (Unarmed)</option>
+                </select>
+                <input type="number" name="attr_MeleeWeaponDam" value="0" />
+                <input type="number" name="attr_MeleeWeaponAB" value="@{PhysicalStrength_Current}" disabled="true" />
+                <select class="medium" name="attr_MeleeWeaponType">
+                    <option value="Chemical">Chemical</option>
+                    <option value="Cold">Cold</option>
+                    <option value="Direct">Direct</option>
+                    <option value="Kinetic">Kinetic</option>
+                    <option value="Psychic">Psychic</option>
+                    <option value="Radiation">Radiation</option>
+                    <option value="Shock">Shock</option>
+                    <option value="Terror">Terror</option>
+                    <option value="Thermal">Thermal</option>
+                </select>
+                <input type="number" name="attr_MeleeWeaponMod" value="0" />
+                <input type="number" name="attr_MeleeWeaponEnc" value="1" />
+                <button type="roll" value="&{template:combat} {{name=@{MeleeWeaponName} Attack!}} {{attack=[[50+@{PhysicalAgility_Current}+@{MeleeWeaponApt} + ?{Modifier|0} - ?{Opponent|0}-1d100cs<5cf>96]]}} {{damage=[[@{MeleeWeaponDam}+@{MeleeWeaponAB}]]}}">
+                    
+                </button>
+            </fieldset>
+        </div>
+        <div>
+            <h2>Ranged Weapons</h2>
+    
+            <span class="long">Name</span>
+            <span class="medium">Aptitude</span>
+            <span class="short">Dam</span>
+            <span class="short">Attr</span>
+            <span class="short">AB</span>
+            <span class="medium">Type</span>
+            <span class="short">Range</span>
+            <span class="short">Mod</span>
+            <span class="short">Enc</span>
+    
+            <fieldset class="repeating_RangedWeapons">
+                <input class="long" type="text" name="attr_RangedWeaponName" />
+                <select class="medium" name="attr_RangedWeaponApt">
+                    <option value="@{RangedArtillery}">Ranged (Artillery)</option>
+                    <option value="@{RangedFirearms}">Ranged (Firearms)</option>
+                    <option value="@{RangedPrimitive}">Ranged (Primitive)</option>
+                    <option value="@{RangedSiege}">Ranged (Siege)</option>
+                    <option value="@{RangedThrowing}">Ranged (Throwing)</option>
+                </select>
+                <input type="number" name="attr_RangedWeaponDam" value="0" />
+                <select class="short" type="text" name="attr_RangedWeaponAttr">
+                    <option value="@{PhysicalAgility_Current}">PA</option>
+                    <option value="@{PhysicalStrength_Current}">PS</option>
+                </select>
+                <input type="number" name="attr_RangedWeaponAB" value="@{RangedWeaponAttr}" disabled="true" />
+                <select class="medium" name="attr_RangedWeaponType">
+                    <option value="Chemical">Chemical</option>
+                    <option value="Cold">Cold</option>
+                    <option value="Direct">Direct</option>
+                    <option value="Kinetic">Kinetic</option>
+                    <option value="Psychic">Psychic</option>
+                    <option value="Radiation">Radiation</option>
+                    <option value="Shock">Shock</option>
+                    <option value="Terror">Terror</option>
+                    <option value="Thermal">Thermal</option>
+                </select>
+                <input class="short" type="text" name="attr_RangedWeaponRange" />
+                <input type="number" name="attr_RangedWeaponMod" value="0" />
+                <input type="number" name="attr_RangedWeaponEnc" value="1" />
+                <button type="roll" value="&{template:combat} {{name=@{RangedWeaponName} Attack!}} {{attack=[[50+@{PhysicalAgility_Current}+@{RangedWeaponApt} + ?{Modifier|0} - ?{Opponent|0}-1d100cs<5cf>96]]}} {{damage=[[@{RangedWeaponDam}+@{RangedWeaponAB}]]}}">
+                    
+                </button>
+            </fieldset>
+        </div>
+    </div>
+</div>
+
+<div class="sheet-equipment">
+    <div class="section">
+        <h2>Encumbrance</h2>
+        <table>
+            <tr>
+                <th>Melee</th>
+                <th>Ranged</th>
+                <th>Worn</th>
+                <th>Carried</th>
+                <th>Total</th>
+                <th>Maximum</th>
+                <th>Encumbered</th>
+            </tr>
+            <tr>
+                <td><input type="hidden" name="attr_Enc_Melee" value="0" /><input type="number" name="attr_Enc_Melee_Display" value="@{Enc_Melee}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_Enc_Ranged" value="0" /><input type="number" name="attr_Enc_Ranged_Display" value="@{Enc_Ranged}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_Enc_Worn" value="0" /><input type="number" name="attr_Enc_Worn_Display" value="@{Enc_Worn}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_Enc_Carried" value="0" /><input type="number" name="attr_Enc_Carried_Display" value="@{Enc_Carried}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_Enc_Total" value="0" /><input type="number" name="attr_Enc_Total_Display" value="@{Enc_Total}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_Enc_Max" value="0" /><input type="number" name="attr_Enc_Max_Display" value="@{Enc_Max}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_Enc_Over" value="0" /><input type="number" name="attr_Enc_Over_Display" value="@{Enc_Over}" disabled="true" /></td>
+            </tr>
+        </table>
+    </div>
+    <div class="section">
+        <h2>Clothing & Armour</h2>
+        <span class="long">Name</span>
+        <span class="medium">Type</span>
+        <span class="short">Head</span>
+        <span class="short">Body</span>
+        <span class="short">L Arm</span>
+        <span class="short">R Arm</span>
+        <span class="short">L Leg</span>
+        <span class="short">R Leg</span>
+        <span class="short">Enc</span>
+    
+        <fieldset class="repeating_Armour">
+            <input class="long" type="text" name="attr_ArmourName" />
+            <select class="medium" name="attr_ArmourType">
+                <option value="Chemical">Chemical</option>
+                    <option value="Cold">Cold</option>
+                    <option value="Direct">Direct</option>
+                    <option value="Kinetic">Kinetic</option>
+                    <option value="Psychic">Psychic</option>
+                    <option value="Radiation">Radiation</option>
+                    <option value="Shock">Shock</option>
+                    <option value="Terror">Terror</option>
+                    <option value="Thermal">Thermal</option>
+            </select>
+            <input class="short" type="number" name="attr_ArmourHead" value="0" />
+            <input class="short" type="number" name="attr_ArmourBody" value="0" />
+            <input class="short" type="number" name="attr_ArmourLArm" value="0" />
+            <input class="short" type="number" name="attr_ArmourRArm" value="0" />
+            <input class="short" type="number" name="attr_ArmourLLeg" value="0" />
+            <input class="short" type="number" name="attr_ArmourRLeg" value="0" />
+            <input class="short" type="number" name="attr_ArmourEnc" value="1" />
+        </fieldset>
+    </div>
+    <div class="section">
+        <h2>Possessions</h2>
+        <div class="stretch">
+            <div>
+                <h3>Carried</h3>
+                <span class="extreme">Name</span>
+                <span class="short">Enc</span>
+                <fieldset class="repeating_Carried">
+                    <input class="extreme" type="text" name="attr_Carried" />
+                    <input class="short" type="number" name="attr_CarriedEnc" value="0" />
+                </fieldset>    
+            </div>
+            <div class="vertical-line"></div>
+            <div>
+                <h3>Owned</h3>
+                <span class="extreme">Name</span>
+                <span class="short">Enc</span>
+                <fieldset class="repeating_Owned">
+                    <input class="extreme" type="text" name="attr_Owned" />
+                    <input class="short" type="number" name="attr_OwnedEnc" value="0" />
+                </fieldset> 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="sheet-special">
+    <div class="section">
+        <h2>Mundane Abilities</h2>
+        <span class="extreme">Name</span>
+        <span class="short">Level</span>
+        <fieldset class="repeating_mundane">
+            <input class="extreme" type="text" name="attr_MundaneName" />
+            <input class="short" type="number" name="attr_MundaneLevel" value="1" />
+        </fieldset>
+    </div>
+    
+    <div class="section">
+        <h2>Extraordinary Abilities</h2>
+    </div>
+    
+    <fieldset class="repeating_Extraordinary">
+        <div class="section stretch">
+            <div>
+                <input class="extreme title" type="text" name="attr_ExtraordindaryName" placeholder="Enter name" /><br />
+                <textarea class="extreme" name="attr_ExtraordinaryDesc" placeholder="Enter description"></textarea><br />    
+            </div>
+            <div class="vertical-line"></div>
+            <div>
+                <strong class="medium align-right">Target: </strong><select name="attr_ExtraordinaryTarget">
+                    <option value="Personal">Personal</option>
+                    <option value="Touch">Touch</option>
+                    <option value="Ranged">Ranged</option>
+                    <option value="Area">Area</option>
+                    <option value="RAoE">RAoE</option>
+                </select><br />
+                <strong class="medium align-right">Difficulty (TN): </strong><select name="attr_ExtraordinaryTN">
+                    <option value="10">Very Hard 0</option>
+                    <option value="30">Hard 30</option>
+                    <option value="50">Average 50</option>
+                    <option value="70">Easy 70</option>
+                    <option value="90">Very Easy 90</option>
+                    <option value="100">N/A</option>
+                </select><br />
+                <strong class="medium align-right">Aptitude: </strong><input class="short" type="number" name="attr_ExtraordinaryAptitude" value="0" /><br />
+                <strong class="medium align-right">Effects: </strong><input class="extreme" type="text" name="attr_ExtraordinaryEffects" placeholder="List of Effects and levels" /><br />
+                <strong class="medium align-right">Downsides: </strong><input class="extreme" type="text" name="attr_ExtraordindaryDownsides" placeholder="List of Downsides and levels" />    
+            </div>
+            
+        </div>
+    </fieldset>
+    
+</div>
+
+<div class="sheet-journal">
+    <div class="section">
+        <h2>Journal</h2>
+        <fieldset class="repeating_Journal">
+            <input class="extreme title" type="text" name="attr_JournalName" placeholder="Enter name" /><br />
+            <textarea class="journal-entry" name="attr_JournalEntry" placeholder="Add your journal"></textarea>
+        </fieldset>
+    </div>
+</div>
+
+<rolltemplate class="sheet-rolltemplate-aptitude">
+    <div class="sheet-template-container">
+        <div class="sheet-template-header">{{name}}</div>
+        {{#^rollLess() result 0}}
+            <div class="sheet-template-row">Success by: {{result}}</div>
+        {{/^rollLess() result 0}}    
+        {{#rollLess() result 0}}
+            <div class="sheet-template-row">Failure by: {{result}}</div>
+        {{/rollLess() result 0}}
+        {{#rollWasCrit() result}}
+            <div class="sheet-template-row">Automatic success!</div>
+        {{/rollWasCrit() result}}
+        {{#rollWasFumble() result}}
+            <div class="sheet-template-row">Automatic failure!</div>
+        {{/rollWasFumble() result}}
+    </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-combat">
+    <div class="sheet-template-container">
+        <div class="sheet-template-header">{{name}}</div>
+        {{#^rollLess() attack 0}}
+            <div class="sheet-template-row">Success by: {{attack}}</div>
+            <div class="sheet-template-row">Damage: {{damage}}</div>
+        {{/^rollLess() attack 0}}    
+        {{#rollLess() attack 0}}
+            <div class="sheet-template-row">Failure by: {{attack}}</div>
+        {{/rollLess() attack 0}}
+        {{#rollWasCrit() attack}}
+            <div class="sheet-template-row">Automatic success!</div>
+        {{/rollWasCrit() attack}}
+        {{#rollWasFumble() attack}}
+            <div class="sheet-template-row">Automatic failure!</div>
+        {{/rollWasFumble() attack}}
+    </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-leap">
+    <div class="sheet-template-container">
+        <div class="sheet-template-header">{{name}}</div>
+        <div class="sheet-template-row">Base height travelled: {{height}} m</div>
+        <div class="sheet-template-row">Base distance standing jump: {{standing}} m</div>
+        <div class="sheet-template-row">Base distance running jump: {{running}} m</div>
+        {{#^rollLess() jump 0}}
+            <div class="sheet-template-row">Distance increase: {{jump}} m</div>
+        {{/^rollLess() jump 0}}    
+        {{#rollLess() jump 0}}
+            <div class="sheet-template-row">Distance decrease: {{jump}} m</div>
+        {{/rollLess() jump 0}}
+    </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-fall">
+    <div class="sheet-template-container">
+        <div class="sheet-template-header">{{name}}</div>
+        {{#rollTotal() type 1}}
+            <div class="sheet-template-row">Jumping: {{distance}}m</div>
+            <div class="sheet-template-row">Damage: {{damage}}</div>
+            {{#^rollLess() athletics 0}}
+                <div class="sheet-template-row">Athletics success!</div>
+                <div class="sheet-template-row">Damage reduced by: {{athletics}}</div>
+            {{/^rollLess() athletics 0}}
+            {{#rollLess() athletics 0}}
+                <div class="sheet-template-row">Athletics failure!: {{athletics}}</div>
+            {{/rollLess() athletics 0}}
+        {{/rollTotal() type 1}}
+        {{#rollTotal() type 2}}
+            <div class="sheet-template-row">Falling {{distance}}m</div>
+            <div class="sheet-template-row">Damage: {{damage}}</div>
+        {{/rollTotal() type 2}}
+    </div>
+</rolltemplate>
+
+<!-- Tabbed sheet worker script -->
+<script type="text/worker">
+    // Code for tabbed character sheet
+    const buttonlist = ["character","equipment", "special", "journal"];
+    buttonlist.forEach(button => {
+        on(`clicked:${button}`, function() {
+            setAttrs({
+                sheetTab: button
+            });
+        });
+    });
+    
+    // Code for repeating section totals
+    /* ===== PARAMETERS ==========
+    destination = the name of the attribute that stores the total quantity
+    section = name of repeating fieldset, without the repeating_
+    fields = the name of the attribute field to be summed
+          can be a single attribute: 'weight'
+          or an array of attributes: ['weight','number','equipped']
+    multiplier (optional) = a multiplier to the entire fieldset total. For instance, if summing coins of weight 0.02, might want to multiply the final total by 0.02.
+    */
+    const repeatingSum = (destination, section, fields, multiplier = 1) => {
+        if (!Array.isArray(fields)) fields = [fields];
+        getSectionIDs(`repeating_${section}`, idArray => {
+            const attrArray = idArray.reduce( (m,id) => [...m, ...(fields.map(field => `repeating_${section}_${id}_${field}`))],[]);
+            getAttrs(attrArray, v => {
+                console.log("===== values of v: "+ JSON.stringify(v) +" =====");
+                     // getValue: if not a number, returns 1 if it is 'on' (checkbox), otherwise returns 0..
+                const getValue = (section, id,field) => parseFloat(v[`repeating_${section}_${id}_${field}`], 10) || (v[`repeating_${section}_${id}_${field}`] === 'on' ? 1 : 0); 
+                const sumTotal = idArray.reduce((total, id) => total + fields.reduce((subtotal,field) => subtotal * getValue(section, id,field),1),0);
+                setAttrs({[destination]: sumTotal * multiplier});    
+            });
+        });
+    };
+    
+    // Calculate Melee Weapon Encumbrance
+    on('change:repeating_meleeweapons remove:repeating_meleeweapons', function() {
+	repeatingSum("Enc_Melee","MeleeWeapons","MeleeWeaponEnc");
+    });
+	
+	// Calculate Ranged Weapon Encumbrance
+	on('change:repeating_rangedweapons remove:repeating_rangedweapons', function() {
+	repeatingSum("Enc_Ranged","RangedWeapons","RangedWeaponEnc");
+	});
+	
+	// Calculate worn item Encumbrance
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("Enc_Worn","Armour","ArmourEnc");
+	});
+	
+	// Calculate carried item Encrumbrance
+	on('change:repeating_carried remove:repeating_carried', function() {
+	repeatingSum("Enc_Carried","Carried","CarriedEnc");
+	});
+	
+	// Calculate total Encumbrance
+	on('change:enc_melee change:enc_ranged change:enc_worn change:enc_carried', function() {
+	   getAttrs(["Enc_Melee", "Enc_Ranged", "Enc_Worn", "Enc_Carried"], function(values) {
+	       setAttrs({
+	           Enc_Total: parseInt(values.Enc_Melee) + parseInt(values.Enc_Ranged) + parseInt(values.Enc_Worn) + parseInt(values.Enc_Carried)
+	       });
+	   });
+	});
+	
+	// Calculate max Encumbrance and adjust Current Strength
+	on('change:physicalstrength', function() {
+	   getAttrs(["PhysicalStrength"], function(values) {
+	        setAttrs({
+	            Enc_Max: parseInt(values.PhysicalStrength*2)
+	        }); 
+	   });
+	});
+	
+	// Calculate encumbered status and apply mods
+	on('change:enc_total change:enc_max', function() {
+	   getAttrs(["Enc_Total", "Enc_Max"], function(values) {
+	       if (values.Enc_Total > values.Enc_Max) {
+	           var encumbered = values.Enc_Max - values.Enc_Total;
+               setAttrs({
+                   Enc_Over: parseInt(encumbered)
+               });
+               setAttrs({
+                   PhysicalStrength_Mod: parseInt(encumbered)
+               });
+               setAttrs({
+                   PhysicalAgility_Mod: parseInt(encumbered)
+               });
+	       } else {
+	           setAttrs({
+                   Enc_Over: 0
+               });
+               setAttrs({
+                   PhysicalStrength_Mod: 0
+               });
+               setAttrs({
+                   PhysicalAgility_Mod: 0
+               });
+	       }
+	   }); 
+	});
+	
+	// Calculate Current Primary Attribute values and apply
+	// Calculate Current Physical Strength
+	on('change:physicalstrength change:physicalstrength_mod', function() {
+	    getAttrs(["PhysicalStrength", "PhysicalStrength_Mod"], function(values) {
+	        var currentPS = parseFloat(values.PhysicalStrength) + parseFloat(values.PhysicalStrength_Mod);
+	        setAttrs({
+	            PhysicalStrength_Current: currentPS
+	        });
+	    });
+	});
+	
+	// Calculate Current Physical Agility and movement rates
+	on('change:physicalagility change:physicalagility_mod', function() {
+	    getAttrs(["PhysicalAgility", "PhysicalAgility_Mod"], function(values) {
+            var currentPA = parseFloat(values.PhysicalAgility) + parseFloat(values.PhysicalAgility_Mod);
+            setAttrs({
+	            PhysicalAgility_Current: currentPA
+	        });
+	        setAttrs({
+	            Walking: currentPA * 0.5
+	        });
+	        setAttrs({
+	            Jogging: currentPA
+	        });
+	        setAttrs({
+	            Running: currentPA * 2
+	        });
+	        setAttrs({
+	            Sprinting: currentPA * 4
+	        });
+	    });
+	});
+	
+	// Calculate Current Physical Fortitude
+	on('change:physicalfortitude change:physicalfortitude_mod', function() {
+	    getAttrs(["PhysicalFortitude", "PhysicalFortitude_Mod"], function(values) {
+	        var currentPF = parseFloat(values.PhysicalFortitude) + parseFloat(values.PhysicalFortitude_Mod);
+	        setAttrs({
+	            PhysicalFortitude_Current: currentPF
+	        });
+	    });
+	});
+	
+	// Calculate Current Social Strength
+	on('change:socialstrength change:socialstrength_mod', function() {
+	    getAttrs(["SocialStrength", "SocialStrength_Mod"], function(values) {
+	        var currentSS = parseFloat(values.SocialStrength) + parseFloat(values.SocialStrength_Mod);
+	        setAttrs({
+	            SocialStrength_Current: currentSS
+	        });
+	    });
+	});
+	
+	// Calculate Current Social Agility and movement rates
+	on('change:socialagility change:socialagility_mod', function() {
+	    getAttrs(["SocialAgility", "SocialAgility_Mod"], function(values) {
+            var currentSA = parseFloat(values.SocialAgility) + parseFloat(values.SocialAgility_Mod);
+            setAttrs({
+	            SocialAgility_Current: currentSA
+	        });
+	    });
+	});
+	
+	// Calculate Current Social Fortitude
+	on('change:socialfortitude change:socialfortitude_mod', function() {
+	    getAttrs(["SocialFortitude", "SocialFortitude_Mod"], function(values) {
+	        var currentSF = parseFloat(values.SocialFortitude) + parseFloat(values.SocialFortitude_Mod);
+	        setAttrs({
+	            SocialFortitude_Current: currentSF
+	        });
+	    });
+	});
+	
+	// Calculate Current Mental Strength
+	on('change:mentalstrength change:mentalstrength_mod', function() {
+	    getAttrs(["MentalStrength", "MentalStrength_Mod"], function(values) {
+	        var currentMS = parseFloat(values.MentalStrength) + parseFloat(values.MentalStrength_Mod);
+	        setAttrs({
+	            MentalStrength_Current: currentMS
+	        });
+	    });
+	});
+	
+	// Calculate Current Social Agility and movement rates
+	on('change:mentalagility change:mentalagility_mod', function() {
+	    getAttrs(["MentalAgility", "MentalAgility_Mod"], function(values) {
+            var currentMA = parseFloat(values.MentalAgility) + parseFloat(values.MentalAgility_Mod);
+            setAttrs({
+	            MentalAgility_Current: currentMA
+	        });
+	    });
+	});
+	
+	// Calculate Current Social Fortitude
+	on('change:mentalfortitude change:mentalfortitude_mod', function() {
+	    getAttrs(["MentalFortitude", "MentalFortitude_Mod"], function(values) {
+	        var currentMF = parseFloat(values.MentalFortitude) + parseFloat(values.MentalFortitude_Mod);
+	        setAttrs({
+	            MentalFortitude_Current: currentMF
+	        });
+	    });
+	});
+	
+	// Calculate Current Shaping
+	on('change:shaping change:shaping_mod', function() {
+	    getAttrs(["Shaping", "Shaping_Mod"], function(values) {
+	        var currentSh = parseFloat(values.Shaping) + parseFloat(values.Shaping_Mod);
+	        setAttrs({
+	            Shaping_Current: currentSh
+	        });
+	    });
+	});
+
+</script>

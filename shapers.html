@@ -3,7 +3,7 @@
 <!-- Version 1.0 -->
 
 <div>
-    <img class="logo" src="https://longshadowgames.com/wp-content/uploads/2019/11/shapers-logo-website.png" />
+    <img class="logo" src="https://longshadowgames.com/roll20-resources/Shapers/shapers-logo.png" />
 </div>
 
 <!-- Tabbed buttons -->
@@ -42,16 +42,16 @@
             <table>
                 <tr>
                     <th></th>
-                    <th>PS</th>
-                    <th>PA</th>
-                    <th>PF</th>
-                    <th>SS</th>
-                    <th>SA</th>
-                    <th>SF</th>
-                    <th>MS</th>
-                    <th>MA</th>
-                    <th>MF</th>
-                    <th>Sh</th>
+                    <th>PS<button type="roll" value="&{template:aptitude} {{name=Testing Physical Strength}} {{result=[[{?{Target Number|50} + @{PhysicalStrength_Current}} -1d100cs<5cf>96]]}}"></button></th>
+                    <th>PA<button type="roll" value="&{template:aptitude} {{name=Testing Physical Agility}} {{result=[[{?{Target Number|50} + @{PhysicalAgility_Current}} -1d100cs<5cf>96]]}}"></button></th>
+                    <th>PF<button type="roll" value="&{template:aptitude} {{name=Testing Physical Fortitude}} {{result=[[{?{Target Number|50} + @{PhysicalFortitude_Current}} -1d100cs<5cf>96]]}}"></button></th>
+                    <th>SS<button type="roll" value="&{template:aptitude} {{name=Testing Social Strength}} {{result=[[{?{Target Number|50} + @{SocialStrength_Current}} -1d100cs<5cf>96]]}}"></button></th>
+                    <th>SA<button type="roll" value="&{template:aptitude} {{name=Testing Social Agility}} {{result=[[{?{Target Number|50} + @{SocialAgility_Current}} -1d100cs<5cf>96]]}}"></button></th>
+                    <th>SF<button type="roll" value="&{template:aptitude} {{name=Testing Social Fortitude}} {{result=[[{?{Target Number|50} + @{SocialFortitude_Current}} -1d100cs<5cf>96]]}}"></button></th>
+                    <th>MS<button type="roll" value="&{template:aptitude} {{name=Testing Mental Strength}} {{result=[[{?{Target Number|50} + @{MentalStrength_Current}} -1d100cs<5cf>96]]}}"></button></th>
+                    <th>MA<button type="roll" value="&{template:aptitude} {{name=Testing Mental Agiltity}} {{result=[[{?{Target Number|50} + @{MentalAgility_Current}} -1d100cs<5cf>96]]}}"></button></th>
+                    <th>MF<button type="roll" value="&{template:aptitude} {{name=Testing Mental Fortitude}} {{result=[[{?{Target Number|50} + @{MentalFortitude_Current}} -1d100cs<5cf>96]]}}"></button></th>
+                    <th>Sh<button type="roll" value="&{template:aptitude} {{name=Testing Shaping}} {{result=[[{?{Target Number|50} + @{Shaping_Current}} -1d100cs<5cf>96]]}}"></button></th>
                 </tr>
                 <tr>
                     <th>Base</th>
@@ -176,13 +176,13 @@
             <table>
                 <tr>
                     <th>PPs</th>
-                    <th>GCs</th>
+                    <th>GSs</th>
                     <th>SMs</th>
                     <th>CBs</th>
                 </tr>
                 <tr>
                     <td><input type="number" name="attr_PPs" /></td>
-                    <td><input type="number" name="attr_GCs" /></td>
+                    <td><input type="number" name="attr_GSs" /></td>
                     <td><input type="number" name="attr_SMs" /></td>
                     <td><input type="number" name="attr_CBs" /></td>
                 </tr>
@@ -199,7 +199,7 @@
                         <tr>
                             <td>Athletics</td>
                             <td><input type="number" name="attr_Athletics" value="0"/></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Athletics}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Athletics}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -210,12 +210,12 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{Athletics} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                                } + @{Athletics}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                         <tr>
                             <td>Bravery</td>
                             <td><input type="number" name="attr_Bravery" value="0" /></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Bravery}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Bravery}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -226,12 +226,12 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{Bravery} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                                } + @{Bravery}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                         <tr>
                             <td>Climbing</td>
                             <td><input type="number" name="attr_Climbing" value="0" /></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Climbing}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Climbing}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -242,12 +242,12 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{Climbing} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                                } + @{Climbing}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                         <tr>
                             <td>Concentration</td>
                             <td><input type="number" name="attr_Concentration" value="0" /></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Concentration}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Concentration}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -258,12 +258,12 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{Concentration} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></button></td>
+                                } + @{Concentration}} -1d100cs<5cf>96]]}}"></button></button></td>
                         </tr>
                         <tr>
                             <td>Dodge</td>
                             <td><input type="number" name="attr_Dodge" value="0" /></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Dodge}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Dodge}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -274,12 +274,12 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{Dodge} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                                } + @{Dodge}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                         <tr>
                             <td>Endurance</td>
                             <td><input type="number" name="attr_Endurance" value="0" /></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Endurance}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Endurance}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -290,12 +290,12 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{Endurance} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                                } + @{Endurance}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                         <tr>
                             <td>Gambling</td>
                             <td><input type="number" name="attr_Gambling" value="0" /></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Gambling}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Gambling}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -306,12 +306,12 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{Gambling} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                                } + @{Gambling}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                         <tr>
                             <td>Intimidation</td>
                             <td><input type="number" name="attr_Intimidation" value="0" /></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Intimidation}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Intimidation}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -322,12 +322,12 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{Intimidation} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                                } + @{Intimidation}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                         <tr>
                             <td>Lifting</td>
                             <td><input type="number" name="attr_Lifting" value="0" /></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Lifting}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Lifting}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -338,12 +338,12 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{Lifting} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                                } + @{Lifting}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                         <tr>
                             <td>Melee (Armed)</td>
                             <td><input type="number" name="attr_MeleeArmed" value="0" /></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Melee (Armed)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Melee (Armed)}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -354,12 +354,12 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{MeleeArmed} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                                } + @{MeleeArmed}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                         <tr>
                             <td>Melee (Unarmed)</td>
                             <td><input type="number" name="attr_MeleeUnarmed" value="0" /></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Melee (Unarmed)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Melee (Unarmed)}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -370,7 +370,7 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{MeleeUnarmed} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                                } + @{MeleeUnarmed}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                     </table>
                 </div>
@@ -380,7 +380,7 @@
                         <tr>
                             <td>Navigation</td>
                             <td><input type="number" name="attr_Navigation" value="0"/></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Navigation}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Navigation}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -391,12 +391,12 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{Navigation} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                                } + @{Navigation}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                         <tr>
                             <td>Ranged (Throwing)</td>
                             <td><input type="number" name="attr_RangedThrowing" value="0" /></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Ranged (Throwing)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Ranged (Throwing)}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -407,12 +407,12 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{RangedThrowing} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                                } + @{RangedThrowing}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                         <tr>
                             <td>Perception</td>
                             <td><input type="number" name="attr_Perception" value="0" /></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Perception}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Perception}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -423,12 +423,12 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{Perception} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                                } + @{Perception}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                         <tr>
                             <td>Persuasion</td>
                             <td><input type="number" name="attr_Persuasion" value="0" /></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Persuasion}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Persuasion}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -439,12 +439,12 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{Persuasion} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                                } + @{Persuasion}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                         <tr>
                             <td>Performance (Acting)</td>
                             <td><input type="number" name="attr_PerformanceActing" value="0" /></td>
-                            <td><button type="roll" value="&{template:default} {{name=Testing Performance (Acting)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:default} {{name=Rolling Performance (Acting)}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -455,12 +455,12 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{PerformanceActing} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                                } + @{PerformanceActing}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                         <tr>
                             <td>Performance (Dance)</td>
                             <td><input type="number" name="attr_PerformanceDance" value="0" /></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Performance (Dance)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Performance (Dance)}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -471,12 +471,12 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{PerformanceDance} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                                } + @{PerformanceDance}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                         <tr>
                             <td>Performance (Entertain)</td>
                             <td><input type="number" name="attr_PerformanceEntertain" value="0" /></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Performance (Entertain)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Performance (Entertain)}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -487,12 +487,12 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{PerformanceEntertain} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                                } + @{PerformanceEntertain}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                         <tr>
                             <td>Performance (Sing)</td>
                             <td><input type="number" name="attr_PerformanceSing" value="0" /></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Performance (Sing)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Performance (Sing)}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -503,12 +503,12 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{PerformanceSing} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                                } + @{PerformanceSing}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                         <tr>
                             <td>Stealth</td>
                             <td><input type="number" name="attr_Stealth" value="0" /></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Stealth}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Stealth}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -519,12 +519,12 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{Stealth} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                                } + @{Stealth}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                         <tr>
                             <td>Survival</td>
                             <td><input type="number" name="attr_Survival" value="0" /></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Survival}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Survival}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -535,12 +535,12 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{Survival} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                                } + @{Survival}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                         <tr>
                             <td>Willpower</td>
                             <td><input type="number" name="attr_Willpower" value="0" /></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Testing Willpower}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Willpower}} {{result=[[{?{Target Number|50} + ?{Attribute|
                                 Physical Strength, @{PhysicalStrength_Current}|
                                 Physical Agility, @{PhysicalAgility_Current}|
                                 Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -551,7 +551,7 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}|
-                                } + @{Willpower} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                                } + @{Willpower}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                     </table>
                 </div>
@@ -567,7 +567,7 @@
                 <tr>
                     <td>Ranged (Artillery)</td>
                     <td><input type="number" name="attr_RangedArtillery" value="0" /></td>
-                    <td><button type="roll" value="&{template:aptitude} {{name=Testing Ranged (Artillery)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                    <td><button type="roll" value="&{template:aptitude} {{name=Rolling Ranged (Artillery)}} {{result=[[{?{Target Number|50} + ?{Attribute|
                         Physical Strength, @{PhysicalStrength_Current}|
                         Physical Agility, @{PhysicalAgility_Current}|
                         Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -578,12 +578,12 @@
                         Mental Agility, @{MentalAgility_Current}|
                         Mental Fortitude, @{MentalFortitude_Current}|
                         Shaping, @{Shaping_Current}|
-                        } + @{RangedArtillery} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        } + @{RangedArtillery}} -1d100cs<5cf>96]]}}"></button></td>
                 </tr>
                 <tr>
                     <td>Ranged (Firearms)</td>
                     <td><input type="number" name="attr_RangedFirearms" value="0" /></td>
-                    <td><button type="roll" value="&{template:aptitude} {{name=Testing Ranged (Firearms)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                    <td><button type="roll" value="&{template:aptitude} {{name=Rolling Ranged (Firearms)}} {{result=[[{?{Target Number|50} + ?{Attribute|
                         Physical Strength, @{PhysicalStrength_Current}|
                         Physical Agility, @{PhysicalAgility_Current}|
                         Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -594,12 +594,12 @@
                         Mental Agility, @{MentalAgility_Current}|
                         Mental Fortitude, @{MentalFortitude_Current}|
                         Shaping, @{Shaping_Current}|
-                        } + @{RangedFirearms} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        } + @{RangedFirearms}} -1d100cs<5cf>96]]}}"></button></td>
                 </tr>
                 <tr>
                     <td>Ranged (Primitive)</td>
                     <td><input type="number" name="attr_RangedPrimitive" value="0" /></td>
-                    <td><button type="roll" value="&{template:aptitude} {{name=Testing Ranged (Primitive)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                    <td><button type="roll" value="&{template:aptitude} {{name=Rolling Ranged (Primitive)}} {{result=[[{?{Target Number|50} + ?{Attribute|
                         Physical Strength, @{PhysicalStrength_Current}|
                         Physical Agility, @{PhysicalAgility_Current}|
                         Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -610,12 +610,12 @@
                         Mental Agility, @{MentalAgility_Current}|
                         Mental Fortitude, @{MentalFortitude_Current}|
                         Shaping, @{Shaping_Current}|
-                        } + @{RangedPrimitive} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        } + @{RangedPrimitive}} -1d100cs<5cf>96]]}}"></button></td>
                 </tr>
                 <tr>
                     <td>Ranged (Siege)</td>
                     <td><input type="number" name="attr_RangedSiege" value="0" /></td>
-                    <td><button type="roll" value="&{template:aptitude} {{name=Testing Ranged (Siege)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                    <td><button type="roll" value="&{template:aptitude} {{name=Rolling Ranged (Siege)}} {{result=[[{?{Target Number|50} + ?{Attribute|
                         Physical Strength, @{PhysicalStrength_Current}|
                         Physical Agility, @{PhysicalAgility_Current}|
                         Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -626,12 +626,12 @@
                         Mental Agility, @{MentalAgility_Current}|
                         Mental Fortitude, @{MentalFortitude_Current}|
                         Shaping, @{Shaping_Current}|
-                        } + @{RangedSiege} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        } + @{RangedSiege}} -1d100cs<5cf>96]]}}"></button></td>
                 </tr>
                 <tr>
                     <td class="long">Ranged (Throwing)</td>
                     <td><input type="number" name="attr_RangedThrowing" value="0" /></td>
-                    <td><button type="roll" value="&{template:aptitude} {{name=Testing Ranged (Throwing)}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                    <td><button type="roll" value="&{template:aptitude} {{name=Rolling Ranged (Throwing)}} {{result=[[{?{Target Number|50} + ?{Attribute|
                         Physical Strength, @{PhysicalStrength_Current}|
                         Physical Agility, @{PhysicalAgility_Current}|
                         Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -642,14 +642,14 @@
                         Mental Agility, @{MentalAgility_Current}|
                         Mental Fortitude, @{MentalFortitude_Current}|
                         Shaping, @{Shaping_Current}|
-                        } + @{RangedThrowing} - ?{Opponent|0}} -1d100cs<5cf>96]]}}"></button></td>
+                        } + @{RangedThrowing}} -1d100cs<5cf>96]]}}"></button></td>
                 </tr>
             </table>
             
             <fieldset class="repeating_skills">
                 <input type="text"name="attr_AptitudeName" />
                 <input type="number" name="attr_AptitudeValue" value="0"/>
-                <button type="roll" value="&{template:aptitude} {{name=Testing @{AptitudeName}}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                <button type="roll" value="&{template:aptitude} {{name=Rolling @{AptitudeName}}} {{result=[[{?{Target Number|50} + ?{Attribute|
                     Physical Strength, @{PhysicalStrength_Current}|
                     Physical Agility, @{PhysicalAgility_Current}|
                     Physical Fortitude, @{PhysicalFortitude_Current}|
@@ -660,7 +660,7 @@
                     Mental Agility, @{MentalAgility_Current}|
                     Mental Fortitude, @{MentalFortitude_Current}|
                     Shaping, @{Shaping_Current}|
-                    } + @{AptitudeValue} - ?{Opponent|0}} -1d100cs<5cf>96]]}}">
+                    } + @{AptitudeValue}} -1d100cs<5cf>96]]}}">
                 </button>
             </fieldset>
             
@@ -702,7 +702,7 @@
                 </select>
                 <input type="number" name="attr_MeleeWeaponMod" value="0" />
                 <input type="number" name="attr_MeleeWeaponEnc" value="1" />
-                <button type="roll" value="&{template:combat} {{name=@{MeleeWeaponName} Attack!}} {{attack=[[50+@{PhysicalAgility_Current}+@{MeleeWeaponApt} + ?{Modifier|0} - ?{Opponent|0}-1d100cs<5cf>96]]}} {{damage=[[@{MeleeWeaponDam}+@{MeleeWeaponAB}]]}}">
+                <button type="roll" value="&{template:combat} {{name=@{MeleeWeaponName} Attack!}} {{attack=[[50+@{PhysicalAgility_Current}+@{MeleeWeaponApt} + ?{Modifier|0}-1d100cs<5cf>96]]}} {{damage=[[@{MeleeWeaponDam}+@{MeleeWeaponAB}]]}}">
                     
                 </button>
             </fieldset>
@@ -749,7 +749,7 @@
                 <input class="short" type="text" name="attr_RangedWeaponRange" />
                 <input type="number" name="attr_RangedWeaponMod" value="0" />
                 <input type="number" name="attr_RangedWeaponEnc" value="1" />
-                <button type="roll" value="&{template:combat} {{name=@{RangedWeaponName} Attack!}} {{attack=[[50+@{PhysicalAgility_Current}+@{RangedWeaponApt} + ?{Modifier|0} - ?{Opponent|0}-1d100cs<5cf>96]]}} {{damage=[[@{RangedWeaponDam}+@{RangedWeaponAB}]]}}">
+                <button type="roll" value="&{template:combat} {{name=@{RangedWeaponName} Attack!}} {{attack=[[50+@{PhysicalAgility_Current}+@{RangedWeaponApt} + ?{Modifier|0}-1d100cs<5cf>96]]}} {{damage=[[@{RangedWeaponDam}+@{RangedWeaponAB}]]}}">
                     
                 </button>
             </fieldset>
@@ -864,6 +864,7 @@
             </div>
             <div class="vertical-line"></div>
             <div>
+                <strong class="medium align-right">Activate!: </strong><button type="roll" value="&{template:aptitude} {{name=Activating @{ExtraordindaryName}}} {{result=[[{@{ExtraordinaryTN} + @{Shaping_Current} + @{ExtraOrdinaryAptitude}} -1d100cs<5cf>96]]}}"></button><br />
                 <strong class="medium align-right">Target: </strong><select name="attr_ExtraordinaryTarget">
                     <option value="Personal">Personal</option>
                     <option value="Touch">Touch</option>
@@ -872,14 +873,26 @@
                     <option value="RAoE">RAoE</option>
                 </select><br />
                 <strong class="medium align-right">Difficulty (TN): </strong><select name="attr_ExtraordinaryTN">
-                    <option value="10">Very Hard 0</option>
+                    <option value="10">Very Hard 10</option>
                     <option value="30">Hard 30</option>
                     <option value="50">Average 50</option>
                     <option value="70">Easy 70</option>
                     <option value="90">Very Easy 90</option>
                     <option value="100">N/A</option>
                 </select><br />
-                <strong class="medium align-right">Aptitude: </strong><input class="short" type="number" name="attr_ExtraordinaryAptitude" value="0" /><br />
+                <strong class="medium align-right">Attribute: </strong>
+                <select class="short" name="attr_ExtraordinaryAttribute">
+                    <option value="@{PhysicalStrength_Current}">PS</option>
+                    <option value="@{PhysicalAgility_Current}">PA</option>
+                    <option value="@{PhysicalFortitude_Current}">PF</option>
+                    <option value="@{SocialStrength_Current}">SS</option>
+                    <option value="@{SocialAgility_Current}">SA</option>
+                    <option value="@{SocialFortitude_Current}">SF</option>
+                    <option value="@{MentalStrength_Current}">MS</option>
+                    <option value="@{MentalAgility_Current}">MA</option>
+                    <option value="@{MentalFortitude_Current}">MF</option>
+                </select>
+                <strong class="medium align-right">Aptitude: </strong><input class="short" type="number" name="attr_ExtraordinaryAptitude" value="0" /><button type="roll" value="&{template:aptitude} {{name=Rolling @{ExtraordindaryName}}} {{result=[[{?{Target Number|50} + @{ExtraordinaryAttribute} + @{ExtraOrdinaryAptitude}} -1d100cs<5cf>96]]}}"></button><br />
                 <strong class="medium align-right">Effects: </strong><input class="extreme" type="text" name="attr_ExtraordinaryEffects" placeholder="List of Effects and levels" /><br />
                 <strong class="medium align-right">Downsides: </strong><input class="extreme" type="text" name="attr_ExtraordindaryDownsides" placeholder="List of Downsides and levels" />    
             </div>

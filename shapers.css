@@ -1,7 +1,7 @@
 .charsheet {
-    background-image: url("http://longshadowgames.com/wp-content/themes/long-shadow-games/images/molten-background.jpg");
-    background-size: cover;
-    background-position: center;
+    background-image: url("http://longshadowgames.com/roll20-resources/Shapers/molten-background.jpg");
+    background-size: 100%;
+    background-position: top;
 }
 
 .sheet-logo {
@@ -94,6 +94,10 @@ th, td {
 .sheet-extreme {
     width: 300px;
     display: inline-block;
+}
+
+select {
+    font-size: 0.9em;
 }
 
 /* Chrome, Safari, Edge, Opera */

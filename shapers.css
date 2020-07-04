@@ -133,3 +133,15 @@ input[type=number] {
     background-color: #fff;
     padding: 2px;   
 }
+
+/* Collapsible sections */
+input.sheet-toggle-more:not(:checked) ~ div.sheet-expanded {
+    display: none;
+    position: relative;
+}
+
+.sheet-more-details {
+    width: 800px;
+    height: 100px;
+    display: block;
+}

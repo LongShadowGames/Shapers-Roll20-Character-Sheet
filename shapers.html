@@ -190,6 +190,49 @@
         </div>
     </div>
     
+    <div class="section">
+        <h2>Resistance and Immunity</h2>
+        
+        <table>
+            <tr>
+                <th></th>
+                <th>Chemical</th>
+                <th>Cold</th>
+                <th>Direct</th>
+                <th>Kinetic</th>
+                <th>Psychic</th>
+                <th>Radiation</th>
+                <th>Shock</th>
+                <th>Terror</th>
+                <th>Thermal</th>
+            </tr>
+            <tr>
+                <th>Damage Resistance (DR)</th>
+                <td><input type="hidden" name="attr_DR_Chemical_total" value="0"><input type="number" name="attr_DR_Chemical_total_Display" value="@{DR_Chemical_total}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_DR_Cold_total" value="0"><input type="number" name="attr_DR_Cold_total_Display" value="@{DR_Cold_total}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_DR_Direct_total" value="0"><input type="number" name="attr_DR_Direct_total_Display" value="@{DR_Direct_total}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_DR_Kinetic_total" value="0"><input type="number" name="attr_DR_Kinetic_total_Display" value="@{DR_Kinetic_total}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_DR_Psychic_total" value="0"><input type="number" name="attr_DR_Psychic_total_Display" value="@{DR_Psychic_total}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_DR_Radiation_total" value="0"><input type="number" name="attr_DR_Radiation_total_Display" value="@{DR_Radiation_total}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_DR_Shock_total" value="0"><input type="number" name="attr_DR_Shock_total_Display" value="@{DR_Shock_total}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_DR_Terror_total" value="0"><input type="number" name="attr_DR_Terror_total_Display" value="@{DR_Terror_total}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_DR_Thermal_total" value="0"><input type="number" name="attr_DR_Thermal_total_Display" value="@{DR_Thermal_total}" disabled="true" /></td>
+            </tr>
+            <tr>
+                <th>Damage Immunity (DI)</th>
+                <td><input type="hidden" name="attr_DI_Chemical_total" value="0"><input type="number" name="attr_DI_Chemical_total_Display" value="@{DI_Chemical_total}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_DI_Cold_total" value="0"><input type="number" name="attr_DI_Cold_total_Display" value="@{DI_Cold_total}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_DI_Direct_total" value="0"><input type="number" name="attr_DI_Direct_total_Display" value="@{DI_Direct_total}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_DI_Kinetic_total" value="0"><input type="number" name="attr_DI_Kinetic_total_Display" value="@{DI_Kinetic_total}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_DI_Psychic_total" value="0"><input type="number" name="attr_DI_Psychic_total_Display" value="@{DI_Psychic_total}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_DI_Radiation_total" value="0"><input type="number" name="attr_DI_Radiation_total_Display" value="@{DI_Radiation_total}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_DI_Shock_total" value="0"><input type="number" name="attr_DI_Shock_total_Display" value="@{DI_Shock_total}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_DI_Terror_total" value="0"><input type="number" name="attr_DI_Terror_total_Display" value="@{DI_Terror_total}" disabled="true" /></td>
+                <td><input type="hidden" name="attr_DI_Thermal_total" value="0"><input type="number" name="attr_DI_Thermal_total_Display" value="@{DI_Thermal_total}" disabled="true" /></td>
+            </tr>
+        </table>
+    </div>
+    
     <div class="section stretch">
         <div>
             <h2>Innate Aptitudes</h2>
@@ -705,6 +748,14 @@
                 <button type="roll" value="&{template:combat} {{name=@{MeleeWeaponName} Attack!}} {{attack=[[50+@{PhysicalAgility_Current}+@{MeleeWeaponApt} + ?{Modifier|0}-1d100cs<5cf>96]]}} {{damage=[[@{MeleeWeaponDam}+@{MeleeWeaponAB}]]}}">
                     
                 </button>
+                <!-- Collapsible section -->
+                <input type="checkbox" name="attr_MeleeWeapon_toggle" class="toggle-more" />
+                <span>More</span>
+                <div class="expanded">
+                    <textarea class="more-details" name="attr_MeleeWeaponDesc" placeholder="Enter the Description here."></textarea>
+                    <textarea class="more-details" name="attr_MeleeWeaponProperties" placeholder="Enter additional Properties here."></textarea>
+                </div>
+                <!-- Collapsible section -->
             </fieldset>
         </div>
         <div>
@@ -752,6 +803,14 @@
                 <button type="roll" value="&{template:combat} {{name=@{RangedWeaponName} Attack!}} {{attack=[[50+@{PhysicalAgility_Current}+@{RangedWeaponApt} + ?{Modifier|0}-1d100cs<5cf>96]]}} {{damage=[[@{RangedWeaponDam}+@{RangedWeaponAB}]]}}">
                     
                 </button>
+                <!-- Collapsible section -->
+                <input type="checkbox" name="attr_RangedWeapon_toggle" class="toggle-more" />
+                <span>More</span>
+                <div class="expanded">
+                    <textarea class="more-details" name="attr_RangedWeaponDesc" placeholder="Enter the Description here."></textarea>
+                    <textarea class="more-details" name="attr_RangedWeaponProperties" placeholder="Enter additional Properties here."></textarea>
+                </div>
+                <!-- Collapsible section -->
             </fieldset>
         </div>
     </div>
@@ -784,35 +843,57 @@
     <div class="section">
         <h2>Clothing & Armour</h2>
         <span class="long">Name</span>
-        <span class="medium">Type</span>
-        <span class="short">Head</span>
-        <span class="short">Body</span>
-        <span class="short">L Arm</span>
-        <span class="short">R Arm</span>
-        <span class="short">L Leg</span>
-        <span class="short">R Leg</span>
         <span class="short">Enc</span>
     
         <fieldset class="repeating_Armour">
             <input class="long" type="text" name="attr_ArmourName" />
-            <select class="medium" name="attr_ArmourType">
-                <option value="Chemical">Chemical</option>
-                    <option value="Cold">Cold</option>
-                    <option value="Direct">Direct</option>
-                    <option value="Kinetic">Kinetic</option>
-                    <option value="Psychic">Psychic</option>
-                    <option value="Radiation">Radiation</option>
-                    <option value="Shock">Shock</option>
-                    <option value="Terror">Terror</option>
-                    <option value="Thermal">Thermal</option>
-            </select>
-            <input class="short" type="number" name="attr_ArmourHead" value="0" />
-            <input class="short" type="number" name="attr_ArmourBody" value="0" />
-            <input class="short" type="number" name="attr_ArmourLArm" value="0" />
-            <input class="short" type="number" name="attr_ArmourRArm" value="0" />
-            <input class="short" type="number" name="attr_ArmourLLeg" value="0" />
-            <input class="short" type="number" name="attr_ArmourRLeg" value="0" />
             <input class="short" type="number" name="attr_ArmourEnc" value="1" />
+            <!-- Collapsible section -->
+                <input type="checkbox"  name="attr_ClothingArmour_toggle" class="toggle-more" />
+                <span>More</span>
+                <div class="expanded">
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>Chemical</th>
+                            <th>Cold</th>
+                            <th>Direct</th>
+                            <th>Kinetic</th>
+                            <th>Psychic</th>
+                            <th>Radiation</th>
+                            <th>Shock</th>
+                            <th>Terror</th>
+                            <th>Thermal</th>
+                        </tr>
+                        <tr>
+                            <th>Damage Resistance (DR)</th>
+                            <td><input type="number" name="attr_DR_Chemical" value="0"></td>
+                            <td><input type="number" name="attr_DR_Cold" value="0"></td>
+                            <td><input type="number" name="attr_DR_Direct" value="0"></td>
+                            <td><input type="number" name="attr_DR_Kinetic" value="0"></td>
+                            <td><input type="number" name="attr_DR_Psychic" value="0"></td>
+                            <td><input type="number" name="attr_DR_Radiation" value="0"></td>
+                            <td><input type="number" name="attr_DR_Shock" value="0"></td>
+                            <td><input type="number" name="attr_DR_Terror" value="0"></td>
+                            <td><input type="number" name="attr_DR_Thermal" value="0"></td>
+                        </tr>
+                        <tr>
+                            <th>Damage Immunity (DI)</th>
+                            <td><input type="number" name="attr_DI_Chemical" value="0"></td>
+                            <td><input type="number" name="attr_DI_Cold" value="0"></td>
+                            <td><input type="number" name="attr_DI_Direct" value="0"></td>
+                            <td><input type="number" name="attr_DI_Kinetic" value="0"></td>
+                            <td><input type="number" name="attr_DI_Psychic" value="0"></td>
+                            <td><input type="number" name="attr_DI_Radiation" value="0"></td>
+                            <td><input type="number" name="attr_DI_Shock" value="0"></td>
+                            <td><input type="number" name="attr_DI_Terror" value="0"></td>
+                            <td><input type="number" name="attr_DI_Thermal" value="0"></td>
+                        </tr>
+                    </table>
+                    <textarea class="more-details" name="attr_RangedWeaponDesc" placeholder="Enter the Description here."></textarea>
+                    <textarea class="more-details" name="attr_RangedWeaponProperties" placeholder="Enter additional Properties here."></textarea>
+                </div>
+                <!-- Collapsible section -->
         </fieldset>
     </div>
     <div class="section">
@@ -1050,10 +1131,10 @@
 	});
 	
 	// Calculate max Encumbrance and adjust Current Strength
-	on('change:physicalstrength', function() {
-	   getAttrs(["PhysicalStrength"], function(values) {
+	on('change:physicalstrength change:size', function() {
+	   getAttrs(["PhysicalStrength", "size"], function(values) {
 	        setAttrs({
-	            Enc_Max: parseInt(values.PhysicalStrength*2)
+	            Enc_Max: parseInt(values.size) + parseInt(values.PhysicalStrength*2)
 	        }); 
 	   });
 	});
@@ -1085,6 +1166,97 @@
 	       }
 	   }); 
 	});
+	
+	// Calculate Chemical DR
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DR_Chemical_total","Armour","DR_Chemical");
+	});
+	
+	// Calculate Chemical DI
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DI_Chemical_total","Armour","DI_Chemical");
+	});
+	
+	// Calculate Cold DR
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DR_Cold_total","Armour","DR_Cold");
+	});
+	
+	// Calculate Cold DI
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DI_Cold_total","Armour","DI_Cold");
+	});
+	
+	// Calculate Direct DR
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DR_Direct_total","Armour","DR_Direct");
+	});
+	
+	// Calculate Direct DI
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DI_Direct_total","Armour","DI_Direct");
+	});
+	
+	// Calculate Kinetic DR
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DR_Kinetic_total","Armour","DR_Kinetic");
+	});
+	
+	// Calculate Kinetic DI
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DI_Kinetic_total","Armour","DI_Kinetic");
+	});
+	
+	// Calculate Psychic DR
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DR_Psychic_total","Armour","DR_Psychic");
+	});
+	
+	// Calculate Psychic DI
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DI_Psychic_total","Armour","DI_Psychic");
+	});
+	
+	// Calculate Radiation DR
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DR_Radiation_total","Armour","DR_Radiation");
+	});
+	
+	// Calculate Radiation DI
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DI_Radiation_total","Armour","DI_Radiation");
+	});
+	
+	// Calculate Shock DR
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DR_Shock_total","Armour","DR_Shock");
+	});
+	
+	// Calculate Shock DI
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DI_Shock_total","Armour","DI_Shock");
+	});
+	
+	// Calculate Terror DR
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DR_Terror_total","Armour","DR_Terror");
+	});
+	
+	// Calculate Terror DI
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DI_Terror_total","Armour","DI_Terror");
+	});
+	
+	// Calculate Thermal DR
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DR_Thermal_total","Armour","DR_Thermal");
+	});
+	
+	// Calculate Thermal DI
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DI_Thermal_total","Armour","DI_Thermal");
+	});
+	
 	
 	// Calculate Current Primary Attribute values and apply
 	// Calculate Current Physical Strength

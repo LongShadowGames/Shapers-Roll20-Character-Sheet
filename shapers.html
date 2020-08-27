@@ -103,7 +103,7 @@
                     <th>Current</th>
                 </tr>
                 <tr>
-                    <td><input type="number" name="attr_ShaperEnergy_max" value="@{Shaping}" disabled="true" /></td>
+                    <td><input type="number" name="attr_ShaperEnergy_max" value="@{Shaping_Current}" disabled="true" /></td>
                     <td><input type="number" name="attr_ShaperEnergy" value="0" /></td>
                 </tr>
             </table>
@@ -138,9 +138,9 @@
                 </tr>
                 <tr>
                     <th>Maximum</th>
-                    <td><input type="number" name="attr_PhysicalHealth_max" value="@{PhysicalStrength}+(2*@{PhysicalFortitude})" disabled="true" /></td>
-                    <td><input type="number" name="attr_SocialHealth_max" value="@{SocialStrength}+(2*@{SocialFortitude})" disabled="true" /></td>
-                    <td><input type="number" name="attr_MentalHealth_max" value="@{MentalStrength}+(2*@{MentalFortitude})" disabled="true" /></td>
+                    <td><input type="number" name="attr_PhysicalHealth_max" value="@{PhysicalStrength_Current}+(2*@{PhysicalFortitude_Current})" disabled="true" /></td>
+                    <td><input type="number" name="attr_SocialHealth_max" value="@{SocialStrength_Current}+(2*@{SocialFortitude_Current})" disabled="true" /></td>
+                    <td><input type="number" name="attr_MentalHealth_max" value="@{MentalStrength_Current}+(2*@{MentalFortitude_Current})" disabled="true" /></td>
                 </tr>
                 <tr>
                     <th>Current</th>
@@ -440,21 +440,6 @@
                                 Shaping, @{Shaping_Current}} + @{Perception}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                         <tr>
-                            <td>Persuasion</td>
-                            <td><input type="number" name="attr_Persuasion" value="0" /></td>
-                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Persuasion}} {{result=[[{?{Target Number|50} + ?{Attribute|
-                                Physical Strength, @{PhysicalStrength_Current}|
-                                Physical Agility, @{PhysicalAgility_Current}|
-                                Physical Fortitude, @{PhysicalFortitude_Current}|
-                                Social Strength, @{SocialStrength_Current}|
-                                Social Agility, @{SocialAgility_Current}|
-                                Social Fortitude, @{SocialFortitude_Current}|
-                                Mental Strength, @{MentalStrength_Current}|
-                                Mental Agility, @{MentalAgility_Current}|
-                                Mental Fortitude, @{MentalFortitude_Current}|
-                                Shaping, @{Shaping_Current}} + @{Persuasion}} -1d100cs<5cf>96]]}}"></button></td>
-                        </tr>
-                        <tr>
                             <td>Performance (Acting)</td>
                             <td><input type="number" name="attr_PerformanceActing" value="0" /></td>
                             <td><button type="roll" value="&{template:default} {{name=Rolling Performance (Acting)}} {{result=[[{?{Target Number|50} + ?{Attribute|
@@ -513,6 +498,21 @@
                                 Mental Agility, @{MentalAgility_Current}|
                                 Mental Fortitude, @{MentalFortitude_Current}|
                                 Shaping, @{Shaping_Current}} + @{PerformanceSing}} -1d100cs<5cf>96]]}}"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Persuasion</td>
+                            <td><input type="number" name="attr_Persuasion" value="0" /></td>
+                            <td><button type="roll" value="&{template:aptitude} {{name=Rolling Persuasion}} {{result=[[{?{Target Number|50} + ?{Attribute|
+                                Physical Strength, @{PhysicalStrength_Current}|
+                                Physical Agility, @{PhysicalAgility_Current}|
+                                Physical Fortitude, @{PhysicalFortitude_Current}|
+                                Social Strength, @{SocialStrength_Current}|
+                                Social Agility, @{SocialAgility_Current}|
+                                Social Fortitude, @{SocialFortitude_Current}|
+                                Mental Strength, @{MentalStrength_Current}|
+                                Mental Agility, @{MentalAgility_Current}|
+                                Mental Fortitude, @{MentalFortitude_Current}|
+                                Shaping, @{Shaping_Current}} + @{Persuasion}} -1d100cs<5cf>96]]}}"></button></td>
                         </tr>
                         <tr>
                             <td>Ranged (Throwing)</td>
@@ -1057,163 +1057,6 @@
             });
         });
     };
-    
-    // Calculate Melee Weapon Encumbrance
-    on('change:repeating_meleeweapons remove:repeating_meleeweapons', function() {
-	repeatingSum("Enc_Melee","MeleeWeapons","MeleeWeaponEnc");
-    });
-	
-	// Calculate Ranged Weapon Encumbrance
-	on('change:repeating_rangedweapons remove:repeating_rangedweapons', function() {
-	repeatingSum("Enc_Ranged","RangedWeapons","RangedWeaponEnc");
-	});
-	
-	// Calculate worn item Encumbrance
-	on('change:repeating_armour remove:repeating_armour', function() {
-	repeatingSum("Enc_Worn","Armour","ArmourEnc");
-	});
-	
-	// Calculate carried item Encrumbrance
-	on('change:repeating_carried remove:repeating_carried', function() {
-	repeatingSum("Enc_Carried","Carried","CarriedEnc");
-	});
-	
-	// Calculate total Encumbrance
-	on('change:enc_melee change:enc_ranged change:enc_worn change:enc_carried', function() {
-	   getAttrs(["Enc_Melee", "Enc_Ranged", "Enc_Worn", "Enc_Carried"], function(values) {
-	       setAttrs({
-	           Enc_Total: parseInt(values.Enc_Melee) + parseInt(values.Enc_Ranged) + parseInt(values.Enc_Worn) + parseInt(values.Enc_Carried)
-	       });
-	   });
-	});
-	
-	// Calculate max Encumbrance and adjust Current Strength
-	on('change:physicalstrength change:size', function() {
-	   getAttrs(["PhysicalStrength", "size"], function(values) {
-	        setAttrs({
-	            Enc_Max: parseInt(values.size) + parseInt(values.PhysicalStrength*2)
-	        }); 
-	   });
-	});
-	
-	// Calculate encumbered status and apply mods
-	on('change:enc_total change:enc_max', function() {
-	   getAttrs(["Enc_Total", "Enc_Max"], function(values) {
-	       if (values.Enc_Total > values.Enc_Max) {
-	           var encumbered = values.Enc_Max - values.Enc_Total;
-               setAttrs({
-                   Enc_Over: parseInt(encumbered)
-               });
-               setAttrs({
-                   PhysicalStrength_Mod: parseInt(encumbered)
-               });
-               setAttrs({
-                   PhysicalAgility_Mod: parseInt(encumbered)
-               });
-	       } else {
-	           setAttrs({
-                   Enc_Over: 0
-               });
-               setAttrs({
-                   PhysicalStrength_Mod: 0
-               });
-               setAttrs({
-                   PhysicalAgility_Mod: 0
-               });
-	       }
-	   }); 
-	});
-	
-	// Calculate Chemical DR
-	on('change:repeating_armour remove:repeating_armour', function() {
-	repeatingSum("DR_Chemical_total","Armour","DR_Chemical");
-	});
-	
-	// Calculate Chemical DI
-	on('change:repeating_armour remove:repeating_armour', function() {
-	repeatingSum("DI_Chemical_total","Armour","DI_Chemical");
-	});
-	
-	// Calculate Cold DR
-	on('change:repeating_armour remove:repeating_armour', function() {
-	repeatingSum("DR_Cold_total","Armour","DR_Cold");
-	});
-	
-	// Calculate Cold DI
-	on('change:repeating_armour remove:repeating_armour', function() {
-	repeatingSum("DI_Cold_total","Armour","DI_Cold");
-	});
-	
-	// Calculate Direct DR
-	on('change:repeating_armour remove:repeating_armour', function() {
-	repeatingSum("DR_Direct_total","Armour","DR_Direct");
-	});
-	
-	// Calculate Direct DI
-	on('change:repeating_armour remove:repeating_armour', function() {
-	repeatingSum("DI_Direct_total","Armour","DI_Direct");
-	});
-	
-	// Calculate Kinetic DR
-	on('change:repeating_armour remove:repeating_armour', function() {
-	repeatingSum("DR_Kinetic_total","Armour","DR_Kinetic");
-	});
-	
-	// Calculate Kinetic DI
-	on('change:repeating_armour remove:repeating_armour', function() {
-	repeatingSum("DI_Kinetic_total","Armour","DI_Kinetic");
-	});
-	
-	// Calculate Psychic DR
-	on('change:repeating_armour remove:repeating_armour', function() {
-	repeatingSum("DR_Psychic_total","Armour","DR_Psychic");
-	});
-	
-	// Calculate Psychic DI
-	on('change:repeating_armour remove:repeating_armour', function() {
-	repeatingSum("DI_Psychic_total","Armour","DI_Psychic");
-	});
-	
-	// Calculate Radiation DR
-	on('change:repeating_armour remove:repeating_armour', function() {
-	repeatingSum("DR_Radiation_total","Armour","DR_Radiation");
-	});
-	
-	// Calculate Radiation DI
-	on('change:repeating_armour remove:repeating_armour', function() {
-	repeatingSum("DI_Radiation_total","Armour","DI_Radiation");
-	});
-	
-	// Calculate Shock DR
-	on('change:repeating_armour remove:repeating_armour', function() {
-	repeatingSum("DR_Shock_total","Armour","DR_Shock");
-	});
-	
-	// Calculate Shock DI
-	on('change:repeating_armour remove:repeating_armour', function() {
-	repeatingSum("DI_Shock_total","Armour","DI_Shock");
-	});
-	
-	// Calculate Terror DR
-	on('change:repeating_armour remove:repeating_armour', function() {
-	repeatingSum("DR_Terror_total","Armour","DR_Terror");
-	});
-	
-	// Calculate Terror DI
-	on('change:repeating_armour remove:repeating_armour', function() {
-	repeatingSum("DI_Terror_total","Armour","DI_Terror");
-	});
-	
-	// Calculate Thermal DR
-	on('change:repeating_armour remove:repeating_armour', function() {
-	repeatingSum("DR_Thermal_total","Armour","DR_Thermal");
-	});
-	
-	// Calculate Thermal DI
-	on('change:repeating_armour remove:repeating_armour', function() {
-	repeatingSum("DI_Thermal_total","Armour","DI_Thermal");
-	});
-	
 	
 	// Calculate Current Primary Attribute values and apply
 	// Calculate Current Physical Strength
@@ -1326,6 +1169,150 @@
 	            Shaping_Current: currentSh
 	        });
 	    });
+	});
+	
+	// Calculate Melee Weapon Encumbrance
+    on('change:repeating_meleeweapons remove:repeating_meleeweapons', function() {
+	repeatingSum("Enc_Melee","MeleeWeapons","MeleeWeaponEnc");
+    });
+	
+	// Calculate Ranged Weapon Encumbrance
+	on('change:repeating_rangedweapons remove:repeating_rangedweapons', function() {
+	repeatingSum("Enc_Ranged","RangedWeapons","RangedWeaponEnc");
+	});
+	
+	// Calculate worn item Encumbrance
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("Enc_Worn","Armour","ArmourEnc");
+	});
+	
+	// Calculate carried item Encrumbrance
+	on('change:repeating_carried remove:repeating_carried', function() {
+	repeatingSum("Enc_Carried","Carried","CarriedEnc");
+	});
+	
+	// Calculate total Encumbrance
+	on('change:enc_melee change:enc_ranged change:enc_worn change:enc_carried', function() {
+	   getAttrs(["Enc_Melee", "Enc_Ranged", "Enc_Worn", "Enc_Carried"], function(values) {
+	       setAttrs({
+	           Enc_Total: parseInt(values.Enc_Melee) + parseInt(values.Enc_Ranged) + parseInt(values.Enc_Worn) + parseInt(values.Enc_Carried)
+	       });
+	   });
+	});
+	
+	// Calculate max Encumbrance
+	on('change:physicalstrength change:physicalstrength_mod', function() {
+	   getAttrs(["PhysicalStrength", "PhysicalStrength_Mod", "size"], function(values) {
+	        setAttrs({
+	            Enc_Max: parseInt(values.size) + (parseInt(values.PhysicalStrength)+parseInt(values.PhysicalStrength_Mod))*2
+	        }); 
+	   });
+	});
+	
+	// Calculate encumbered status and apply mods
+	on('change:enc_total change:enc_max', function() {
+	   getAttrs(["Enc_Total", "Enc_Max"], function(values) {
+	       if (values.Enc_Total > values.Enc_Max) {
+	           var encumbered = values.Enc_Max - values.Enc_Total;
+               setAttrs({
+                   Enc_Over: parseInt(encumbered)
+               });
+	       } else {
+	           setAttrs({
+                   Enc_Over: 0
+               });
+	       }
+	   }); 
+	});
+	
+	// Calculate Chemical DR
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DR_Chemical_total","Armour","DR_Chemical");
+	});
+	
+	// Calculate Chemical DI
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DI_Chemical_total","Armour","DI_Chemical");
+	});
+	
+	// Calculate Cold DR
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DR_Cold_total","Armour","DR_Cold");
+	});
+	
+	// Calculate Cold DI
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DI_Cold_total","Armour","DI_Cold");
+	});
+	
+	// Calculate Direct DR
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DR_Direct_total","Armour","DR_Direct");
+	});
+	
+	// Calculate Direct DI
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DI_Direct_total","Armour","DI_Direct");
+	});
+	
+	// Calculate Kinetic DR
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DR_Kinetic_total","Armour","DR_Kinetic");
+	});
+	
+	// Calculate Kinetic DI
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DI_Kinetic_total","Armour","DI_Kinetic");
+	});
+	
+	// Calculate Psychic DR
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DR_Psychic_total","Armour","DR_Psychic");
+	});
+	
+	// Calculate Psychic DI
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DI_Psychic_total","Armour","DI_Psychic");
+	});
+	
+	// Calculate Radiation DR
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DR_Radiation_total","Armour","DR_Radiation");
+	});
+	
+	// Calculate Radiation DI
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DI_Radiation_total","Armour","DI_Radiation");
+	});
+	
+	// Calculate Shock DR
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DR_Shock_total","Armour","DR_Shock");
+	});
+	
+	// Calculate Shock DI
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DI_Shock_total","Armour","DI_Shock");
+	});
+	
+	// Calculate Terror DR
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DR_Terror_total","Armour","DR_Terror");
+	});
+	
+	// Calculate Terror DI
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DI_Terror_total","Armour","DI_Terror");
+	});
+	
+	// Calculate Thermal DR
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DR_Thermal_total","Armour","DR_Thermal");
+	});
+	
+	// Calculate Thermal DI
+	on('change:repeating_armour remove:repeating_armour', function() {
+	repeatingSum("DI_Thermal_total","Armour","DI_Thermal");
 	});
 
 </script>
